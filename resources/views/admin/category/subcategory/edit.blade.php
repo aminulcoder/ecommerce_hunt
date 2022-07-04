@@ -1,6 +1,5 @@
 <form action="{{ route('subcategory.update') }}" method="POST">
     @csrf
-
     <div class="modal-body">
         <div class="form-group">
             <label for="category_name">Category Name</label>

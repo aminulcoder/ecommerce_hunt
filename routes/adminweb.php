@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ChildcategoryController;
 use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\HomeController;
 
@@ -32,8 +33,9 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'is_admin'
     Route::get('/admin/home',[AdminController::class,'admin'])->name('admin.home');
     Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logout');
 
+    // category route
     Route::group(['prefix'=>'category'],function(){
-        
+
         Route::get('/',[CategoryController::class,'index'])->name('category.index');
         Route::post('/store',[CategoryController::class,'store'])->name('category.store');
         Route::get('/delete/{id}',[CategoryController::class,'destroy'])->name('category.destroy');
@@ -41,6 +43,8 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'is_admin'
         Route::post('/update', [CategoryController::class, 'update'])->name('category.update');
 
     });
+
+    // subcategory Route
     Route::group(['prefix'=>'subcategory'],function(){
 
         Route::get('/',[SubcategoryController::class,'index'])->name('subcategory.index');
@@ -50,4 +54,18 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'is_admin'
         Route::post('/update', [SubcategoryController::class, 'update'])->name('subcategory.update');
 
     });
+    // Child Category Route
+
+    Route::group(['prefix'=>'childcategory'],function(){
+
+        Route::get('/',[ChildcategoryController::class,'index'])->name('childcategory.index');
+        Route::post('/store',[ChildcategoryController::class,'store'])->name('childcategory.store');
+        Route::get('/delete/{id}',[ChildcategoryController::class,'destroy'])->name('childcategory.delete');
+        Route::get('/edit/{id}',[ChildcategoryController::class,'edit'])->name('childcategory.edit');
+        Route::post('/update', [ChildcategoryController::class, 'update'])->name('childcategory.update');
+
+    });
+
+
+
 });

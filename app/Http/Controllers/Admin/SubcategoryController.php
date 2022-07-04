@@ -21,25 +21,30 @@ class SubcategoryController extends Controller
         ->leftJoin('categories','sub_categories.category_id','categories.id')
         ->select('sub_categories.*','categories.category_name')
         ->get();
+
         // return $data;
         // $category = Category::all();
+
         $category =DB::table('categories')->get();
         return view('admin.category.subcategory.index',compact('data','category'));
     }
 
-
     public function store(Request $request){
+
         // return $request->all();
 
         $validated = $request->validate([
             'sub_category_name' => 'required|max:55',
         ]);
+
         $data = array();
         $data['category_id'] = $request ->category_id;
         $data['sub_category_name'] = $request ->sub_category_name;
         $data['sub_category_slug'] = Str::slug($request ->sub_category_name, '-');
+
         // dd($data);
         // return $data;
+
         DB::table('sub_categories')->insert($data);
         $notification =array('message'=> 'Sub Category Inserted !' ,'alert-type'=> 'success');
         return redirect()->back()->with($notification);
@@ -48,8 +53,10 @@ class SubcategoryController extends Controller
     public function edit($id){
 
         $data = SubCategory::find($id);
-    // return $data;
-    // dd($data);
+
+        // return $data;
+        // dd($data);
+        
         $category= DB::table('categories')->get();
         return view('admin.category.subcategory.edit',compact('category','data'));
     }
@@ -61,10 +68,13 @@ class SubcategoryController extends Controller
         ]);
 
         $data = array();
+
         // $data['id'] = $request ->id;
+
         $data['category_id'] = $request ->category_id;
         $data['sub_category_name'] = $request ->sub_category_name;
         $data['sub_category_slug'] = Str::slug($request ->sub_category_name, '-');
+
         // dd($data);
         // return $data;
         // DB::table('sub_categories')->insert($data);
@@ -74,7 +84,6 @@ class SubcategoryController extends Controller
         return redirect()->back()->with($notification);
 
     }
-
     public function destroy($id){
         DB::table('sub_categories')->where('id',$id)->delete();
         $notification =array('message'=> 'sub_Category Deleted !' ,'alert-type'=> 'success');
