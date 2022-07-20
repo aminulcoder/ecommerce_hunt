@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ChildcategoryController;
 use App\Http\Controllers\Admin\SubcategoryController;
@@ -63,6 +64,17 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'is_admin'
         Route::get('/delete/{id}',[ChildcategoryController::class,'destroy'])->name('childcategory.delete');
         Route::get('/edit/{id}',[ChildcategoryController::class,'edit'])->name('childcategory.edit');
         Route::post('/update', [ChildcategoryController::class, 'update'])->name('childcategory.update');
+
+    });
+    // Brand Routes
+
+    Route::group(['prefix'=>'brand'],function(){
+
+        Route::get('/',[BrandController::class,'index'])->name('brand.index');
+        Route::post('/store',[BrandController::class,'store'])->name('brand.store');
+        Route::get('/delete/{id}',[BrandController::class,'destroy'])->name('brand.delete');
+        Route::get('/edit/{id}',[BrandController::class,'edit'])->name('brand.edit');
+        Route::post('/update', [BrandController::class, 'update'])->name('brand.update');
 
     });
 
