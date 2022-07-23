@@ -33,6 +33,8 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'is_admin'
 
     Route::get('/admin/home',[AdminController::class,'admin'])->name('admin.home');
     Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logout');
+    Route::get('/admin/password/change',[AdminController::class,'PasswordChange'])->name('admin.password.change');
+    Route::post('/admin/password/update',[AdminController::class,'PasswordUpdate'])->name('admin.password.update');
 
     // category route
     Route::group(['prefix'=>'category'],function(){
