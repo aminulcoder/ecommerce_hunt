@@ -32,7 +32,7 @@
 <body>
 
 
-    <div class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+    <div class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 
         @guest
         @else
