@@ -35,20 +35,12 @@ class SettingController extends Controller
         $data['google_analytics']    = $request->google_analytics;
         $data['alexa_verification']  = $request->alexa_verification;
         $data['google_adsense']      = $request->google_adsense;
-
         // return $data;
         // dd($data);
-
-        // DB::table('seos')->insert($data);
-        // $notification =array('message'=> 'Sub Category Inserted !' ,'alert-type'=> 'success');
-        // return redirect()->back()->with($notification);
-
         DB::table('seos')->where('id', $id)->update($data);
         $notification = array('message' => 'seo setting Updated !', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
-
-
     public function smtp(){
         $smtp = DB::table('smtps')->first();
         return view('admin.setting.smtp',compact('smtp'));
@@ -56,7 +48,6 @@ class SettingController extends Controller
 
     public function smtpUpdate(Request $request ,$id){
         //   return $request->all();
-
         $data              = array();
         $data['mailer']    = $request->mailer;
         $data['host']      = $request->host;
