@@ -1,7 +1,12 @@
+@php
+    $settings =DB::table('settings')->first();
+@endphp
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <span class="brand-text font-weight-light">AdminLte3</span>
+        <img src="{{url($setting->favicon)}}" class="brand-image img-circle evelation-3" style="opacity: 0.8">
+        <span class="brand-text font-weight-light">Sunflower Ecommerce</span>
     </a>
 
     <!-- Sidebar -->
@@ -108,7 +113,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('website.setting')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Website Setting</p>
                             </a>
