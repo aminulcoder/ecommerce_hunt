@@ -125,28 +125,5 @@ class  SettingController extends Controller
         $notification = array('messege' => 'settings updated ', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
 
-
-
-    //     if ($request->logo) {  //jodi new logo die thake
-    //         $logo=$request->logo;
-    //         $logo_name=uniqid().'.'.$logo->getClientOriginalExtension();
-    //         Image::make($logo)->resize(320,120)->save('public/files/setting/'.$logo_name);
-    //       $data['logo']='public/files/setting/'.$logo_name;
-    //   }else{   //jodi new logo na dey
-    //       $data['logo']=$request->old_logo;
-    //   }
-
-    //   if ($request->favicon) {  //jodi new logo die thake
-    //         $favicon=$request->favicon;
-    //         $favicon_name=uniqid().'.'.$favicon->getClientOriginalExtension();
-    //         Image::make($favicon)->resize(32,32)->save('public/files/setting/'.$favicon_name);
-    //         $data['favicon']='public/files/setting/'.$favicon_name;
-    //   }else{   //jodi new logo na dey
-    //       $data['favicon']=$request->old_favicon;
-    //   }
-
-    //   DB::table('settings')->where('id',$id)->update($data);
-    //   $notification=array('messege' => 'Setting Updated!', 'alert-type' => 'success');
-    //   return redirect()->back()->with($notification);
     }
 }

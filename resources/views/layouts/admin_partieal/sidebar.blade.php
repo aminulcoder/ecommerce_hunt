@@ -1,5 +1,5 @@
 @php
-    $settings =DB::table('settings')->first();
+    $setting =DB::table('settings')->first();
 @endphp
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -87,7 +87,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('brand.index')}}" class="nav-link">
+                            <a href="{{route('warehouse.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Ware house</p>
                             </a>
